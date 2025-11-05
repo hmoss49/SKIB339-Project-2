@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Game399.Shared
+namespace Game399.Shared.Runtime
 {
     public class ObservableValue<T> : IEquatable<T>
     {
