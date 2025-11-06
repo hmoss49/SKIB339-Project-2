@@ -126,7 +126,6 @@ namespace Game399.Unity
         {
             if (_currentCharacter == null) return;
 
-            // Interact with the Model via Service, not the View
             _dialogService.SelectOption(_currentCharacter, optionIndex);
         }
 
@@ -164,23 +163,19 @@ namespace Game399.Unity
 
             if (finalAffection >= 70)
             {
-                endingMessage = $"{_currentCharacter.Name} has fallen in love with you! ❤️\n\n" +
-                                "They want to be with you always. This is the best ending!";
+                endingMessage = $"{_currentCharacter.Name} has fallen in love with you!;
             }
             else if (finalAffection >= 50)
             {
-                endingMessage = $"{_currentCharacter.Name} really likes you!\n\n" +
-                                "They're interested in seeing where this goes. Good job!";
+                endingMessage = $"{_currentCharacter.Name} really likes you!";
             }
             else if (finalAffection >= 30)
             {
-                endingMessage = $"{_currentCharacter.Name} thinks you're okay.\n\n" +
-                                "You're friends, but nothing more developed.";
+                endingMessage = $"{_currentCharacter.Name} thinks you're okay.";
             }
             else
             {
-                endingMessage = $"{_currentCharacter.Name} isn't interested in you.\n\n" +
-                                "Your choices pushed them away. Maybe try again?";
+                endingMessage = $"{_currentCharacter.Name} isn't interested in you.";
             }
 
             dialogText.text = endingMessage;
