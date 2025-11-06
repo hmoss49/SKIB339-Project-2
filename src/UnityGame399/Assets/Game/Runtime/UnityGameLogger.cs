@@ -6,17 +6,17 @@ namespace Game.Runtime
     {
         public void Info(string message)
         {
-            UnityEngine.Debug.Log(message);
+            Debug.Log(message);
         }
 
-        public void Warn(string message)
+        public void Warning(string message)
         {
-            UnityEngine.Debug.LogWarning(message);
+            Debug.LogWarning(message);
         }
 
         public void Error(string message)
         {
-            UnityEngine.Debug.LogError(message);
+            Debug.LogError(message);
         }
     }
 }

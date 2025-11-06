@@ -11,7 +11,7 @@ namespace Game399.Shared.Runtime.Models
         {
             Name = name;
             Description = description;
-            Affection = new ObservableValue<int>(0);
+            Affection = new ObservableValue<int>(50);
             CurrentDialogIndex = new ObservableValue<int>(0);
         }
     }

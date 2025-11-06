@@ -1,7 +1,7 @@
-using Game399.Shared.Diagnostics;
+using Game399.Shared.Runtime;
 using UnityEngine;
 
-namespace Game.Runtime
+namespace Game399.Unity
 {
     public abstract class ObserverMonoBehaviour : MonoBehaviour
     {
