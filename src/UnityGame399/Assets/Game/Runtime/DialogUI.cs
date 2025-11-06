@@ -163,7 +163,7 @@ namespace Game399.Unity
 
             if (finalAffection >= 70)
             {
-                endingMessage = $"{_currentCharacter.Name} has fallen in love with you!;
+                endingMessage = $"{_currentCharacter.Name} has fallen in love with you!";
             }
             else if (finalAffection >= 50)
             {
