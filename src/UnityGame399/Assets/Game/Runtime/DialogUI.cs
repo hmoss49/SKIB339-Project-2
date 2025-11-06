@@ -39,16 +39,20 @@ namespace Game399.Unity
             option2Button.onClick.AddListener(() => OnOptionSelected(1));
             option3Button.onClick.AddListener(() => OnOptionSelected(2));
             backButton.onClick.AddListener(OnBackToSelection);
-
-            dialogPanel.SetActive(false);
         }
 
         protected override void Subscribe()
         {
             if (_gameState != null)
             {
+        		Debug.Log($"GameState is not null. CurrentCharacter value: {_gameState.CurrentCharacter.Value?.Name ?? "null"}");
                 _gameState.CurrentCharacter.ChangeEvent += OnCurrentCharacterChanged;
+        		Debug.Log("Subscribed to CurrentCharacter.ChangeEvent");
             }
+			else
+        	{
+			Debug.Log("ERROR: GameState is NULL!");
+ 			}
         }
 
         protected override void Unsubscribe()
@@ -67,6 +71,8 @@ namespace Game399.Unity
 
         private void OnCurrentCharacterChanged(Character character)
         {
+            Debug.Log($"OnCurrentCharacterChanged called! Character: {character?.Name}");
+            
             // Unsubscribe from previous character
             if (_currentCharacter != null)
             {

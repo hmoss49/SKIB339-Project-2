@@ -31,7 +31,13 @@ namespace Game399.Unity
         {
             if (_gameState != null)
             {
+                Debug.Log($"GameState is not null. IsGameActive value: {_gameState.IsGameActive.Value}");
                 _gameState.IsGameActive.ChangeEvent += OnGameActiveChanged;
+                Debug.Log("Subscribed to IsGameActive.ChangeEvent");
+            }
+            else
+            {
+                Debug.Log("ERROR: GameState is NULL!");
             }
         }
 
