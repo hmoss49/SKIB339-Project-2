@@ -37,7 +37,7 @@ namespace Game399.Unity
 
         private void InitializeServices()
         {
-            _gameLog = new UnityGameLog();
+            _gameLog = new UnityGameLogger();
             _dialogService = new DialogService(_gameLog);
             _gameState = new GameState();
 

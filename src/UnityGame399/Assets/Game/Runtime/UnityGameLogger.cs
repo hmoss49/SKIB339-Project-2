@@ -1,22 +1,22 @@
-using Game399.Shared.Diagnostics;
+using UnityEngine;
 
-namespace Game.Runtime
+namespace Game399.Shared.Runtime
 {
     public class UnityGameLogger : IGameLog
     {
         public void Info(string message)
         {
-            Debug.Log(message);
+            Debug.Log($"[INFO] {message}");
         }
 
         public void Warning(string message)
         {
-            Debug.LogWarning(message);
+            Debug.LogWarning($"[WARNING] {message}");
         }
 
         public void Error(string message)
         {
-            Debug.LogError(message);
+            Debug.LogError($"[ERROR] {message}");
         }
     }
 }
