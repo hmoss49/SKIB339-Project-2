@@ -70,13 +70,13 @@ namespace Game399.Unity
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "I love living life on the edge. You?",
+                    "Line 2",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "Want to take this relationship to the next level?",
+                    "Line 3",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
@@ -100,13 +100,13 @@ namespace Game399.Unity
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "I'm always down for an adventure! You up for it?",
+                    "Line 2",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "So... think we could be more than friends?",
+                    "Line 3",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
@@ -130,13 +130,13 @@ namespace Game399.Unity
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "I appreciate the finer things in life. Do you?",
+                    "Line 2",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
                 ),
                 new DialogNode(
-                    "I feel we have a special connection. Don't you?",
+                    "Line 3",
                     new DialogOption("Good option", 5),
                     new DialogOption("OK option", 0),
                     new DialogOption("Bad option", -3)
