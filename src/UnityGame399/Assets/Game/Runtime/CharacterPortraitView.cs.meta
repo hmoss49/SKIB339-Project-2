@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: fef09985ce26f47419209d9234192517
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - vodkaSprite: {instanceID: 0}
+  - strongZeroSprite: {instanceID: 0}
+  - wineSprite: {instanceID: 0}
+  - portraitImage: {instanceID: 0}
+  - portraitContainer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

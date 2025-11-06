@@ -1,7 +1,10 @@
 {
-    "name": "Game399.Shared",
-    "rootNamespace": "Game399.Shared",
-    "references": [],
+    "name": "Game399.Unity",
+    "rootNamespace": "Game399.Unity",
+    "references": [
+        "Game399.Shared",
+        "Unity.TextMeshPro"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

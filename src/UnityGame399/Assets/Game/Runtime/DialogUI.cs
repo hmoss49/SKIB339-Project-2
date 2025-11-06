@@ -29,11 +29,12 @@ namespace Game399.Unity
 
         protected override void Start()
         {
-            base.Start();
-            
+            // Resolve services BEFORE calling base.Start() which triggers Subscribe()
             _gameState = ServiceResolver.Resolve<GameState>();
             _dialogService = ServiceResolver.Resolve<IDialogService>();
             _gameLog = ServiceResolver.Resolve<IGameLog>();
+            
+            base.Start();
 
             option1Button.onClick.AddListener(() => OnOptionSelected(0));
             option2Button.onClick.AddListener(() => OnOptionSelected(1));
@@ -45,14 +46,14 @@ namespace Game399.Unity
         {
             if (_gameState != null)
             {
-        		Debug.Log($"GameState is not null. CurrentCharacter value: {_gameState.CurrentCharacter.Value?.Name ?? "null"}");
+                Debug.Log($"GameState is not null. CurrentCharacter value: {_gameState.CurrentCharacter.Value?.Name ?? "null"}");
                 _gameState.CurrentCharacter.ChangeEvent += OnCurrentCharacterChanged;
-        		Debug.Log("Subscribed to CurrentCharacter.ChangeEvent");
+                Debug.Log("Subscribed to CurrentCharacter.ChangeEvent");
             }
-			else
-        	{
-			Debug.Log("ERROR: GameState is NULL!");
- 			}
+            else
+            {
+                Debug.Log("ERROR: GameState is NULL!");
+            }
         }
 
         protected override void Unsubscribe()

@@ -18,10 +18,11 @@ namespace Game399.Unity
 
         protected override void Start()
         {
-            base.Start();
-            
+            // Resolve services BEFORE calling base.Start() which triggers Subscribe()
             _gameState = ServiceResolver.Resolve<GameState>();
             _gameLog = ServiceResolver.Resolve<IGameLog>();
+            
+            base.Start();
             
             CreateCharacterButtons();
             ShowSelectionScreen();

@@ -1,4 +1,5 @@
 using Game399.Shared.Runtime;
+using Game399.Shared.Runtime.Models;
 using UnityEngine;
 
 namespace Game399.Unity

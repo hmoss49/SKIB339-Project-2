@@ -20,9 +20,11 @@ namespace Game399.Unity
 
         protected override void Start()
         {
+            // Resolve services BEFORE calling base.Start() which triggers Subscribe()
+            _gameState = ServiceResolver.Resolve<GameState>();
+            
             base.Start();
             
-            _gameState = ServiceResolver.Resolve<GameState>();
             portraitContainer.SetActive(false);
         }
 

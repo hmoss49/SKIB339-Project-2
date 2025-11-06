@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Game399.Unity
 {
+    [DefaultExecutionOrder(-100)]
     public class Game : MonoBehaviour
     {
         private static Game _instance;
