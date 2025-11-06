@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="259847e5-6b19-4021-9838-a337a1592cf8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../Shared/Game399.Shared/Runtime/Models/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Shared/Game399.Shared/Runtime/Models/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BadGuyHitItView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BadGuyHitItView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoodGuyHpView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoodGuyHpView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObserverMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ObserverMonoBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServiceResolver.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServiceResolver.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnityGameLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnityGameLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Shared/Game399.Tests/DialogServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Shared/Game399.Tests/DialogServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../Shared/Game399.Shared/Runtime/Models/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Shared/Game399.Tests/DialogServiceTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterPortraitView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CharacterSelectionUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DialogUI.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762415266106</updated>
-      <workItem from="1762415269375" duration="1037000" />
+      <workItem from="1762415269375" duration="1820000" />
     </task>
     <servers />
   </component>

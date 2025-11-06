@@ -6,10 +6,6 @@ using TMPro;
 
 namespace Game399.Unity
 {
-    /// <summary>
-    /// UI Controller for dialog display and player choices
-    /// Interacts with the Model (DialogService), not the View
-    /// </summary>
     public class DialogUI : ObserverMonoBehaviour
     {
         [Header("UI References")]
@@ -39,7 +35,6 @@ namespace Game399.Unity
             _dialogService = ServiceResolver.Resolve<IDialogService>();
             _gameLog = ServiceResolver.Resolve<IGameLog>();
 
-            // Setup button listeners
             option1Button.onClick.AddListener(() => OnOptionSelected(0));
             option2Button.onClick.AddListener(() => OnOptionSelected(1));
             option3Button.onClick.AddListener(() => OnOptionSelected(2));
@@ -127,14 +122,6 @@ namespace Game399.Unity
             option3Text.text = dialog.Options[2].Text;
         }
 
-        private string GetAffectionHint(int change)
-        {
-            if (change >= 5) return " ❤️";
-            if (change >= 1) return " 💙";
-            if (change <= -3) return " 💔";
-            return "";
-        }
-
         private void OnOptionSelected(int optionIndex)
         {
             if (_currentCharacter == null) return;
@@ -151,7 +138,7 @@ namespace Game399.Unity
             float normalizedAffection = Mathf.InverseLerp(0, 100, affection);
             affectionSlider.value = normalizedAffection;
 
-            // Color coding
+            // Color code
             var sliderFill = affectionSlider.fillRect.GetComponent<Image>();
             if (sliderFill != null)
             {

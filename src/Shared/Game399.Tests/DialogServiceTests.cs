@@ -68,7 +68,7 @@ namespace Game399.Tests
             service.SelectOption(character, 0); // Select first option (+5 affection)
 
             // Assert
-            Assert.That(character.Affection.Value, Is.EqualTo(5));
+            Assert.That(character.Affection.Value, Is.EqualTo(55)); // 50 + 5
             Assert.That(character.CurrentDialogIndex.Value, Is.EqualTo(1));
             Assert.That(log.InfoMessages[1], Does.Contain("Affection change: +5"));
         }
@@ -87,7 +87,7 @@ namespace Game399.Tests
             service.SelectOption(character, 2); // Select third option (-3 affection)
 
             // Assert
-            Assert.That(character.Affection.Value, Is.EqualTo(-3));
+            Assert.That(character.Affection.Value, Is.EqualTo(47)); // 50 - 3
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace Game399.Tests
             service.SelectOption(character, 99); // Invalid index
 
             // Assert
-            Assert.That(character.Affection.Value, Is.EqualTo(0));
+            Assert.That(character.Affection.Value, Is.EqualTo(50)); // Still 50
             Assert.That(character.CurrentDialogIndex.Value, Is.EqualTo(0));
             Assert.That(log.ErrorMessages.Count, Is.EqualTo(1));
             Assert.That(log.ErrorMessages[0], Does.Contain("Invalid option index"));
@@ -180,8 +180,8 @@ namespace Game399.Tests
             service.SelectOption(character, 1); // +0
             service.SelectOption(character, 0); // +5
 
-            // Assert - Total should be 10
-            Assert.That(character.Affection.Value, Is.EqualTo(10));
+            // Assert - Total should be 60 (50 + 5 + 0 + 5)
+            Assert.That(character.Affection.Value, Is.EqualTo(60));
             Assert.That(service.IsDialogComplete(character), Is.True);
         }
 
