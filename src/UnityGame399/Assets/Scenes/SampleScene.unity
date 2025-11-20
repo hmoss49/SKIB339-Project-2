@@ -840,7 +840,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -937,6 +937,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game399.Unity.Game
   backgroundMusicSource: {fileID: 375787362}
+  menuMusic: {fileID: 8300000, guid: 3427d132bca78ca4e840fd174dce7a2f, type: 3}
+  vodkaMusic: {fileID: 0}
+  strongZeroMusic: {fileID: 8300000, guid: b6573921a7e46f0438d5aa7edd175cd9, type: 3}
+  wineMusic: {fileID: 0}
+  whiskeyMusic: {fileID: 0}
+  sojuMusic: {fileID: 0}
 --- !u!4 &375787364
 Transform:
   m_ObjectHideFlags: 0

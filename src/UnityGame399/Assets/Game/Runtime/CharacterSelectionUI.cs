@@ -56,6 +56,11 @@ namespace Game399.Unity
         {
             // Hide selection screen when a character is selected
             selectionPanel.SetActive(!isActive);
+
+            if (!isActive)
+            {
+                Game.Instance.PlayMenuMusic();
+            }
         }
 
         private void CreateCharacterButtons()
@@ -98,6 +103,7 @@ namespace Game399.Unity
         {
             _gameLog.Info($"Player selected character: {character.Name}");
             _gameState.SelectCharacter(character);
+            Game.Instance.PlayCharacterMusic(character.Name);
         }
 
         public void ShowSelectionScreen()
