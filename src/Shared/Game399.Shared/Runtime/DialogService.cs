@@ -62,7 +62,7 @@ namespace Game399.Shared.Runtime
             character.Sobriety.Value += selectedOption.SobrietyChange;
             
             _gameLog.Info($"{character.Name} - Selected: '{selectedOption.Text}' (Affection change: {selectedOption.AffectionChange:+#;-#;0}, Total: {character.Affection.Value})");
-            _gameLog.Info($"{character.Name} - Selected: '{selectedOption.Text}' (Sobreity change: {selectedOption.SobrietyChange:+#;-#;0}, Total: {character.Sobriety.Value})");
+            _gameLog.Info($"{character.Name} - Selected: '{selectedOption.Text}' (Sobriety change: {selectedOption.SobrietyChange:+#;-#;0}, Total: {character.Sobriety.Value})");
 
 
             // Move to next dialog
