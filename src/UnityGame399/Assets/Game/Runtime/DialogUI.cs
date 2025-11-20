@@ -19,7 +19,7 @@ namespace Game399.Unity
         [SerializeField] private TextMeshProUGUI option2Text;
         [SerializeField] private TextMeshProUGUI option3Text;
         [SerializeField] private TextMeshProUGUI affectionText;
-        [SerializeField] private Slider affectionSlider;
+        [SerializeField] private Image affectionSlider;
         [SerializeField] private Button backButton;
 
         private GameState _gameState;
@@ -139,25 +139,21 @@ namespace Game399.Unity
         private void UpdateAffectionDisplay(int affection)
         {
             affectionText.text = $"Affection: {affection}";
-    
-            // Map affection to slider (range 0 to 100)
-            float normalizedAffection = Mathf.InverseLerp(0, 100, affection);
-            affectionSlider.value = normalizedAffection;
-
-            // Color code
-            var sliderFill = affectionSlider.fillRect.GetComponent<Image>();
-            if (sliderFill != null)
+            
+            affectionSlider.fillAmount = affection / 100f;
+            
+            if (affectionSlider != null)
             {
                 if (affection >= 80)
-                    sliderFill.color = new Color(1f, 0.4f, 0.7f); // Pink - Love
-                else if (affection >= 60)
-                    sliderFill.color = new Color(1f, 0.6f, 0.6f); // Light red - Very positive
-                else if (affection >= 40)
-                    sliderFill.color = new Color(0.5f, 0.8f, 1f); // Light blue - Positive
-                else if (affection >= 20)
-                    sliderFill.color = new Color(0.7f, 0.7f, 0.7f); // Gray - Neutral
+                    affectionSlider.color = new Color(1f, 0.4f, 0.7f); // Pink - Love
+                else if (affection >= 65)
+                    affectionSlider.color = new Color(1f, 0.6f, 0.6f); // Light red - Very positive
+                else if (affection >= 50)
+                    affectionSlider.color = new Color(0.7f, 0.7f, 0.7f); // Grey - Neutral
+                else if (affection >= 30)
+                    affectionSlider.color = Color.orange; // Soft Red - Dislike
                 else
-                    sliderFill.color = new Color(0.6f, 0.6f, 0.8f); // Purple - Negative
+                    affectionSlider.color = Color.red; // Red - Very Negative
             }
         }
 
@@ -168,21 +164,25 @@ namespace Game399.Unity
             int finalAffection = _currentCharacter.Affection.Value;
             string endingMessage;
 
-            if (finalAffection >= 70)
+            if (finalAffection >= 80)
             {
                 endingMessage = $"{_currentCharacter.Name} has fallen in love with you!";
             }
-            else if (finalAffection >= 50)
+            else if (finalAffection >= 65)
             {
                 endingMessage = $"{_currentCharacter.Name} really likes you!";
             }
+            else if (finalAffection >= 50)
+            {
+                endingMessage = $"{_currentCharacter.Name} doesn't know how to feel about you.";
+            }
             else if (finalAffection >= 30)
             {
-                endingMessage = $"{_currentCharacter.Name} thinks you're okay.";
+                endingMessage = $"{_currentCharacter.Name} isn't interested in you.";
             }
             else
             {
-                endingMessage = $"{_currentCharacter.Name} isn't interested in you.";
+                endingMessage = $"{_currentCharacter.Name} really doesn't like you.";
             }
 
             dialogText.text = endingMessage;
