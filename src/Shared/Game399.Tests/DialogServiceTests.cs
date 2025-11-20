@@ -17,25 +17,6 @@ namespace Game399.Tests
             public void Error(string message) => ErrorMessages.Add(message);
         }
 
-        using Game399.Shared.Runtime;
-using Game399.Shared.Runtime.Models;
-using System.Collections.Generic;
-
-namespace Game399.Tests
-{
-    public class DialogServiceTests
-    {
-        private class TestGameLog : IGameLog
-        {
-            public List<string> InfoMessages { get; } = new List<string>();
-            public List<string> WarningMessages { get; } = new List<string>();
-            public List<string> ErrorMessages { get; } = new List<string>();
-
-            public void Info(string message) => InfoMessages.Add(message);
-            public void Warning(string message) => WarningMessages.Add(message);
-            public void Error(string message) => ErrorMessages.Add(message);
-        }
-
         [Test]
         public void RegisterCharacterDialogs_StoresDialogsCorrectly()
         {
@@ -78,12 +59,18 @@ namespace Game399.Tests
 
             service.SelectOption(character, 0); // +5 affection, -15 sobriety
 
-            Assert.That(character.Affection.Value, Is.EqualTo(55)); // 50 + 5
-            Assert.That(character.Sobriety.Value, Is.EqualTo(35));  // 50 - 15
+            Assert.That(character.Affection.Value, Is.EqualTo(55));
+            Assert.That(character.Sobriety.Value, Is.EqualTo(35));
             Assert.That(character.CurrentDialogIndex.Value, Is.EqualTo(1));
+
+            // Validate log lines:
+            // [0] -> "Registered X dialog nodes"
+            // [1] -> affection log
+            // [2] -> sobriety log
             Assert.That(log.InfoMessages[1], Does.Contain("Affection change: +5"));
-            Assert.That(log.InfoMessages[1], Does.Contain("Sobriety change: -15"));
+            Assert.That(log.InfoMessages[2], Does.Contain("Sobriety change: -15"));
         }
+
 
         [Test]
         public void SelectOption_DecreaseAffectionForBadChoice()
@@ -97,8 +84,12 @@ namespace Game399.Tests
             service.SelectOption(character, 2); // -3 affection, +15 sobriety
 
             Assert.That(character.Affection.Value, Is.EqualTo(47));
-            Assert.That(character.Sobriety.Value, Is.EqualTo(65));  // 50 + 15
+            Assert.That(character.Sobriety.Value, Is.EqualTo(65));
+
+            Assert.That(log.InfoMessages[1], Does.Contain("Affection change: -3"));
+            Assert.That(log.InfoMessages[2], Does.Contain("Sobriety change: +15"));
         }
+
 
         [Test]
         public void SelectOption_WithInvalidIndex_LogsError()
@@ -183,34 +174,6 @@ namespace Game399.Tests
             Assert.That(character.Sobriety.Value, Is.EqualTo(35)); // 50 -15 +15 -15
             Assert.That(service.IsDialogComplete(character), Is.True);
         }
-
-        private List<DialogNode> CreateVodkaDialogs()
-        {
-            return new List<DialogNode>
-            {
-                new DialogNode(
-                    "Hey! Want to party tonight?",
-                    new DialogOption("Absolutely! Let's go wild!", 5, -15),
-                    new DialogOption("Maybe... depends on the vibe.", 0, 15),
-                    new DialogOption("I don't really party.", -3, 15)
-                ),
-                new DialogNode(
-                    "I love living life on the edge. You?",
-                    new DialogOption("Same! Life's too short to play it safe!", 4, -15),
-                    new DialogOption("I prefer a balanced approach.", 0, 15),
-                    new DialogOption("I like taking risks with you!", 3, -15)
-                ),
-                new DialogNode(
-                    "Want to take this relationship to the next level?",
-                    new DialogOption("Yes! I'm all in with you!", 5, -15),
-                    new DialogOption("Let me think about it...", 1, 15),
-                    new DialogOption("I'm not sure we're compatible.", -1, 15)
-                )
-            };
-        }
-    }
-}
-
 
         private List<DialogNode> CreateVodkaDialogs()
         {
