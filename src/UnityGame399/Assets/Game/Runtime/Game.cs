@@ -14,6 +14,12 @@ namespace Game399.Unity
 
         [Header("Audio")]
         [SerializeField] private AudioSource backgroundMusicSource;
+        [SerializeField] private AudioClip menuMusic;
+        [SerializeField] private AudioClip vodkaMusic;
+        [SerializeField] private AudioClip strongZeroMusic;
+        [SerializeField] private AudioClip wineMusic;
+        [SerializeField] private AudioClip whiskeyMusic;
+        [SerializeField] private AudioClip sojuMusic;
 
         private GameState _gameState;
         private IDialogService _dialogService;
@@ -34,7 +40,7 @@ namespace Game399.Unity
 
             InitializeServices();
             CreateCharacters();
-            PlayBackgroundMusic();
+            PlayMenuMusic();
         }
 
         private void InitializeServices()
@@ -149,16 +155,57 @@ namespace Game399.Unity
             _dialogService.RegisterCharacterDialogs(wine, dialogs);
         }
 
-        private void PlayBackgroundMusic()
+        public void PlayCharacterMusic(string characterName)
         {
-            if (backgroundMusicSource != null && !backgroundMusicSource.isPlaying)
+            AudioClip clipToPlay = null;
+
+            switch (characterName)
             {
-                backgroundMusicSource.loop = true;
-                backgroundMusicSource.Play();
-                _gameLog.Info("Background music started");
+                case "Vodka":
+                    clipToPlay = vodkaMusic;
+                    break;
+                case "Strong Zero":
+                    clipToPlay = strongZeroMusic;
+                    break;
+                case "Wine":
+                    clipToPlay = wineMusic;
+                    break;
+                case "Whiskey":
+                    clipToPlay = whiskeyMusic;
+                    break;
+                case "Soju":
+                    clipToPlay = sojuMusic;
+                    break;
+            }
+
+            if (clipToPlay != null)
+            {
+                PlayMusic(clipToPlay);
+                _gameLog.Info($"Playing music for {characterName}");
             }
         }
-        
+
+        public void PlayMenuMusic()
+        {
+            if (menuMusic != null)
+            {
+                PlayMusic(menuMusic);
+                _gameLog.Info("Playing menu music");
+            }
+        }
+
+        private void PlayMusic(AudioClip clip)
+        {
+            if (backgroundMusicSource != null && clip != null)
+            {
+                if (backgroundMusicSource.clip != clip)
+                {
+                    backgroundMusicSource.clip = clip;
+                    backgroundMusicSource.loop = true;
+                    backgroundMusicSource.Play();
+                }
+            }
+        }
         
     }
 }
