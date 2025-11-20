@@ -2,6 +2,8 @@ using Game399.Shared.Runtime;
 using Game399.Shared.Runtime.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using TMPro;
 
 namespace Game399.Unity
@@ -23,6 +25,7 @@ namespace Game399.Unity
         [SerializeField] private TextMeshProUGUI sobrietyText;
         [SerializeField] private Image sobrietySlider;
         [SerializeField] private Button backButton;
+        [SerializeField] private PostProcessing postProcessing;
 
         private GameState _gameState;
         private IDialogService _dialogService;
@@ -109,11 +112,13 @@ namespace Game399.Unity
         private void OnAffectionChanged(int newAffection)
         {
             UpdateAffectionDisplay(newAffection);
+            postProcessing.UpdateAffectionPostProcessing(newAffection);
         }
 
         private void OnSobrietyChanged(int newSobriety)
         {
             UpdateSobrietyDisplay(newSobriety);
+            postProcessing.UpdateSobrietyPostProcessing(newSobriety);
         }
 
         private void OnDialogIndexChanged(int newIndex)
@@ -181,9 +186,11 @@ namespace Game399.Unity
                 else if (sobriety >= 50)
                     sobrietySlider.color = new Color(0.7f, 0.7f, 0.7f); // Grey - Sober
                 else if (sobriety >= 30)
-                    sobrietySlider.color = new Color(0.51f, 0.05f, 0.34f); // Tipsy - 
+                    sobrietySlider.color = new Color(0.51f, 0.05f, 0.34f); // Tipsy - Purple
+                else if (sobriety >= 15)
+                    sobrietySlider.color = new Color(0.32f, 0.03f, 0.21f); // Drunk - Wine
                 else
-                    sobrietySlider.color = new Color(0.32f, 0.03f,0.21f); // Red - Very Negative
+                    sobrietySlider.color = new Color(0.12f, 0.01f, 0.08f); // Wasted - Dark Wine
             }
         }
 
@@ -234,6 +241,7 @@ namespace Game399.Unity
             if (_currentCharacter != null)
             {
                 _currentCharacter.Affection.Value = 50;
+                _currentCharacter.Sobriety.Value = 50;
                 _currentCharacter.CurrentDialogIndex.Value = 0;
             }
 

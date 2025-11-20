@@ -12,6 +12,8 @@ namespace Game399.Unity
         [SerializeField] private GameObject selectionPanel;
         [SerializeField] private Transform characterButtonContainer;
         [SerializeField] private GameObject characterButtonPrefab;
+        [SerializeField] private Sprite[] characterSelectSprites;
+        [SerializeField] private Sprite defaultCharacterSelectSprite;
 
         private GameState _gameState;
         private IGameLog _gameLog;
@@ -58,6 +60,8 @@ namespace Game399.Unity
 
         private void CreateCharacterButtons()
         {
+            int index = 0;
+            
             foreach (var character in _gameState.Characters)
             {
                 var buttonObj = Instantiate(characterButtonPrefab, characterButtonContainer);
@@ -67,7 +71,19 @@ namespace Game399.Unity
                 {
                     buttonText.text = $"{character.Name}\n<size=60%>{character.Description}</size>";
                 }
-                
+                var buttonImage = buttonObj.GetComponent<Image>();
+                if (buttonImage != null)
+                {
+                    if (characterSelectSprites.Length == _gameState.Characters.Count)
+                    {
+                        buttonImage.sprite = characterSelectSprites[index];
+                        index++;
+                    }
+                    else
+                    {
+                        buttonImage.sprite = defaultCharacterSelectSprite;
+                    }
+                }
                 var button = buttonObj.GetComponent<Button>();
                 if (button != null)
                 {

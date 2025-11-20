@@ -1,3 +1,4 @@
+using System;
 using Game399.Shared.Runtime;
 using Game399.Shared.Runtime.Models;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace Game399.Unity
 
             _gameLog.Info("Game services initialized");
         }
-
+        
         private void CreateCharacters()
         {
             CreateVodkaCharacter();
@@ -157,5 +158,7 @@ namespace Game399.Unity
                 _gameLog.Info("Background music started");
             }
         }
+        
+        
     }
 }
