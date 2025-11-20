@@ -20,6 +20,8 @@ namespace Game399.Unity
         [SerializeField] private TextMeshProUGUI option3Text;
         [SerializeField] private TextMeshProUGUI affectionText;
         [SerializeField] private Image affectionSlider;
+        [SerializeField] private TextMeshProUGUI sobrietyText;
+        [SerializeField] private Image sobrietySlider;
         [SerializeField] private Button backButton;
 
         private GameState _gameState;
@@ -66,6 +68,7 @@ namespace Game399.Unity
             if (_currentCharacter != null)
             {
                 _currentCharacter.Affection.ChangeEvent -= OnAffectionChanged;
+                _currentCharacter.Sobriety.ChangeEvent -= OnSobrietyChanged;
                 _currentCharacter.CurrentDialogIndex.ChangeEvent -= OnDialogIndexChanged;
             }
         }
@@ -78,6 +81,7 @@ namespace Game399.Unity
             if (_currentCharacter != null)
             {
                 _currentCharacter.Affection.ChangeEvent -= OnAffectionChanged;
+                _currentCharacter.Sobriety.ChangeEvent -= OnSobrietyChanged;
                 _currentCharacter.CurrentDialogIndex.ChangeEvent -= OnDialogIndexChanged;
             }
 
@@ -87,11 +91,13 @@ namespace Game399.Unity
             {
                 // Subscribe to new character's events
                 character.Affection.ChangeEvent += OnAffectionChanged;
+                character.Sobriety.ChangeEvent += OnSobrietyChanged;
                 character.CurrentDialogIndex.ChangeEvent += OnDialogIndexChanged;
 
                 characterNameText.text = character.Name;
                 dialogPanel.SetActive(true);
                 UpdateAffectionDisplay(character.Affection.Value);
+                UpdateSobrietyDisplay(character.Sobriety.Value);
                 DisplayCurrentDialog();
             }
             else
@@ -103,6 +109,11 @@ namespace Game399.Unity
         private void OnAffectionChanged(int newAffection)
         {
             UpdateAffectionDisplay(newAffection);
+        }
+
+        private void OnSobrietyChanged(int newSobriety)
+        {
+            UpdateSobrietyDisplay(newSobriety);
         }
 
         private void OnDialogIndexChanged(int newIndex)
@@ -151,9 +162,28 @@ namespace Game399.Unity
                 else if (affection >= 50)
                     affectionSlider.color = new Color(0.7f, 0.7f, 0.7f); // Grey - Neutral
                 else if (affection >= 30)
-                    affectionSlider.color = Color.orange; // Soft Red - Dislike
+                    affectionSlider.color = Color.orange; // Orange - Dislike
                 else
                     affectionSlider.color = Color.red; // Red - Very Negative
+            }
+        }
+        
+        private void UpdateSobrietyDisplay(int sobriety)
+        {
+            sobrietyText.text = $"Sobriety: {sobriety}";
+            
+            sobrietySlider.fillAmount = sobriety / 100f;
+            
+            if (sobrietySlider != null)
+            {
+                if (sobriety >= 65)
+                    sobrietySlider.color = Color.skyBlue; // Blue - Super Sober
+                else if (sobriety >= 50)
+                    sobrietySlider.color = new Color(0.7f, 0.7f, 0.7f); // Grey - Sober
+                else if (sobriety >= 30)
+                    sobrietySlider.color = new Color(0.51f, 0.05f, 0.34f); // Tipsy - 
+                else
+                    sobrietySlider.color = new Color(0.32f, 0.03f,0.21f); // Red - Very Negative
             }
         }
 

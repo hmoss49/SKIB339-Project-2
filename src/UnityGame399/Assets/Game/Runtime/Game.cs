@@ -66,21 +66,21 @@ namespace Game399.Unity
             {
                 new DialogNode(
                     "Hello!",
-                    new DialogOption("Good option", 15),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -15)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 2",
-                    new DialogOption("Good option", 15),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -15)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 3",
-                    new DialogOption("Good option", 15),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -15)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 )
             };
 
@@ -96,21 +96,21 @@ namespace Game399.Unity
             {
                 new DialogNode(
                     "Hello!",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 2",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 3",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 )
             };
 
@@ -126,21 +126,21 @@ namespace Game399.Unity
             {
                 new DialogNode(
                     "Hello!",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 2",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 ),
                 new DialogNode(
                     "Line 3",
-                    new DialogOption("Good option", 5),
-                    new DialogOption("OK option", 0),
-                    new DialogOption("Bad option", -3)
+                    new DialogOption("Good option", 15,-15),
+                    new DialogOption("OK option", 0,15),
+                    new DialogOption("Bad option", -15,15)
                 )
             };
 

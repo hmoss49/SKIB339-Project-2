@@ -57,10 +57,13 @@ namespace Game399.Shared.Runtime
 
             var selectedOption = currentDialog.Options[optionIndex];
             
-            // Apply affection change
+            // Apply stat changes
             character.Affection.Value += selectedOption.AffectionChange;
+            character.Sobriety.Value += selectedOption.SobrietyChange;
             
             _gameLog.Info($"{character.Name} - Selected: '{selectedOption.Text}' (Affection change: {selectedOption.AffectionChange:+#;-#;0}, Total: {character.Affection.Value})");
+            _gameLog.Info($"{character.Name} - Selected: '{selectedOption.Text}' (Sobriety change: {selectedOption.SobrietyChange:+#;-#;0}, Total: {character.Sobriety.Value})");
+
 
             // Move to next dialog
             character.CurrentDialogIndex.Value++;
