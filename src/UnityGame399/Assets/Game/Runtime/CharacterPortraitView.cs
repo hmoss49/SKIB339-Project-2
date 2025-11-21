@@ -11,6 +11,8 @@ namespace Game399.Unity
         [SerializeField] private Sprite vodkaSprite;
         [SerializeField] private Sprite strongZeroSprite;
         [SerializeField] private Sprite wineSprite;
+        [SerializeField] private Sprite whiskeySprite;
+        [SerializeField] private Sprite sojuSprite;
         
         [Header("UI References")]
         [SerializeField] private Image portraitImage;
@@ -64,6 +66,12 @@ namespace Game399.Unity
                     break;
                 case "Wine":
                     portraitImage.sprite = wineSprite;
+                    break;
+                case "Whiskey":
+                    portraitImage.sprite = whiskeySprite;
+                    break;
+                case "Soju":
+                    portraitImage.sprite = sojuSprite;
                     break;
             }
         }
