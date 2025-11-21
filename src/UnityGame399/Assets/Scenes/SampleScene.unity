@@ -2505,6 +2505,8 @@ MonoBehaviour:
   - {fileID: -4561377285297849968, guid: ed30617f7cecee04389e65f18fc07de9, type: 3}
   - {fileID: 7436494852619761870, guid: 38ed6ee8d0f4de6499bd1efc03d6cb65, type: 3}
   - {fileID: -6396226979672069696, guid: cee7bb80e99444e49b5ee106410b48a8, type: 3}
+  - {fileID: 5740781075490083653, guid: 8c7041726308ed247a59bab4186769b6, type: 3}
+  - {fileID: -5509659243431744457, guid: 70666d997c4b2894f880d07f39970b27, type: 3}
   defaultCharacterSelectSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
 --- !u!1 &1329564872
 GameObject:
@@ -3209,7 +3211,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 20
+  m_Spacing: -100
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -3267,10 +3269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game399.Unity.CharacterPortraitView
   vodkaSprite: {fileID: 8106080950690154060, guid: 9b095a9ed8a388a4cac1f914479f3d2b, type: 3}
-  strongZeroSprite: {fileID: 0}
-  wineSprite: {fileID: 0}
-  whiskeySprite: {fileID: 0}
-  sojuSprite: {fileID: 0}
+  strongZeroSprite: {fileID: 1347687497928471539, guid: 9b71f9099fd04b84f8430ed66c5bc61b, type: 3}
+  wineSprite: {fileID: 262602053635242629, guid: da259dadd8bea3e46bfc0ac48c735d0e, type: 3}
+  whiskeySprite: {fileID: -780357946405451759, guid: 881e4189de167c94bae21e203095d657, type: 3}
+  sojuSprite: {fileID: 1385393377381889405, guid: 2e863722f85f48449b9c3c212b115cf4, type: 3}
   portraitImage: {fileID: 268632808}
   portraitContainer: {fileID: 268632806}
 --- !u!1 &1969499408

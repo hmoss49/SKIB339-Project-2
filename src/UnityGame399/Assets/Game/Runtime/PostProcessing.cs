@@ -49,14 +49,14 @@ namespace Game399.Unity
             {
                 bloom.intensity.value = 3f;
                 chromaticAberration.intensity.value = 0.8f;
-                lensDistortion.intensity.value = -0.6f;
+                lensDistortion.intensity.value = -0.5f;
                 dof.mode.value = DepthOfFieldMode.Gaussian;
             }
             else
             {
                 bloom.intensity.value = 10f;
                 chromaticAberration.intensity.value = 1f;
-                lensDistortion.intensity.value = -0.8f;
+                lensDistortion.intensity.value = -0.6f;
                 dof.mode.value = DepthOfFieldMode.Gaussian;
             }
         }
